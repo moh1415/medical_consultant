@@ -1,0 +1,15 @@
+<%= form_with model: @patient,local: true do |form| %>
+Full name:<%= form.text_field :full_name %>
+<p>
+Phone number: 
+<%= form.text_field :phone_number %>
+</p>
+<p>
+Age: 
+<%= form.text_field :age %>
+</p>
+<%= form.submit%>
+<%= link_to 'Destroy', patient_path(patient),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+<% end %>

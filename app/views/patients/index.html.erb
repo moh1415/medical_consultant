@@ -1,0 +1,10 @@
+<h2>All patients</h2>
+
+<% @patient.each do |patient| %>
+<div><%= link_to patient.full_name, patient %>
+<%= link_to "Edit", edit_patient_path(patient) %>
+</div>
+<div>
+
+              </div>
+<% end %>

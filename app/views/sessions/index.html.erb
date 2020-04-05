@@ -1,0 +1,68 @@
+
+
+   <body>
+      <%= render 'home/nav' %>
+      <br><br> <br><br> <br><br>
+   <div class="container">
+  <h2></h2>
+  <p> </p>
+    <div class="row">
+
+  
+
+    <div class="col-md-10 col-md-offset-1">
+
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title">List Of Sessions</h3>
+                    </div>
+                    <div class="col col-xs-6 text-right">
+                         <%= link_to 'Create New Session', new_session_path, class: 'btn btn-sm btn-primary btn-create' %>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                    <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"></em></th>
+                    
+                        <th>Title</th>
+                        <th>Replay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                     <% @session.each do |session| %>
+                    <tr>
+                        <td align="center">
+                        
+                           <%= link_to '', edit_session_path(session), class: 'btn btn-default fa fa-pencil' %>
+                            <%= link_to '', session_path(session) , class: 'btn btn-danger fa fa-trash', method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </td>
+                       
+                        <td><%= link_to session.title, session_path(session) %></td>
+                        <td><%= session.Response %></td>
+                    
+                    </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+           
+        </div>
+
+    </div></div></div>
+
+
+
+
+
+   </body>
+
+   
+
+ 
+ 

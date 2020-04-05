@@ -1,0 +1,10 @@
+<h2>All Doctors</h2>
+
+<% @doctor.each do |doc| %>
+<div><%= link_to doc.full_name, doctor_path(doc) %>
+<%= link_to "Edit", edit_doctor_path(doc) %>
+</div>
+<div>
+
+              </div>
+<% end %>
