@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
-    
+      
         def index
-            @session = Session.all
+          # if current_user.is_role == "doctor"
+          # # @session = Session.all
+          # @session = current_user.session.all
+          #  end
+          @session = Session.all
         end
+        
         def show
             @session = Session.find(params[:id])
           end

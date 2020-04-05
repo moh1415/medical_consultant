@@ -1,3 +1,4 @@
+ <%= current_user.is_role.inspect if user_signed_in? %>
   <header class="main_menu home_menu">
         <div class="container">
             <div class="row align-items-center">
@@ -18,32 +19,41 @@
                                     <%= link_to('home', home_index_path, class: 'nav-link') %>
                                 </li>
                                 
-                                <li class="nav-item">
+                                <%# <li class="nav-item">
                                     <%= link_to('Patient', patients_path, class: 'nav-link') %>
-                                </li>
+                                <%# </li> %> 
+                                 <% if user_signed_in? == true %>
                                  <li class="nav-item">
-                                    <%= link_to('Patient Dahshboard', sessions_path, class: 'nav-link') %>
+                                    <%= link_to('Dahshboard', sessions_path, class: 'nav-link') %>
                                 </li>
+                                  <li class="nav-item">
+                                    <%= link_to('Edit Profile', edit_user_registration_path, class: 'nav-link') %>
+                                </li>
+                                <% end %> 
+                                 <% if user_signed_in? == false %>
+
+                                <li>
+                                     <%= link_to('Login', new_user_session_path, class: 'nav-link') %>
+                                    
+                                </li>
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Doctor.html">Doctor</a>
+                                    
+                                    <%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %>
                                 </li>
-                                    <a class="nav-link" href="">Login</a>
-                                </li>
+                              <% end %> 
+                     <% if user_signed_in? == true %>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Doctor.html">Sign Up</a>
+                                   <%= link_to('Logout', destroy_user_session_path, method: :delete , class: 'nav-link') %>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Dashboard</a>
-                                </li>
-                    
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
+                                 <% end %> 
                             </ul>
                         </div>
-                        <a class="btn_2 d-none d-lg-block" href="#">Contact</a>
+                        <a class="btn_2 d-none d-lg-block" href="#"><%= current_user.fullname if user_signed_in? %></a>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
+    <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> 
