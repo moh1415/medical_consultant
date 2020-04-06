@@ -1,11 +1,14 @@
 class SessionsController < ApplicationController
       
         def index
-          # if current_user.is_role == "doctor"
-          # # @session = Session.all
-          # @session = current_user.session.all
-          #  end
-          @session = Session.all
+          if current_user.is_role == "patient"
+            @session = Session.where(:patient_id => current_user)
+            # @session = Session.all
+            # @session = current_user.sessions.all
+          elsif current_user.is_role == "doctor"
+            @session = Session.where(:user_id => current_user)
+           end
+          # @session = Session.all
         end
         
         def show
@@ -15,8 +18,8 @@ class SessionsController < ApplicationController
          @session = Session.new
         end
         def create
-            @session = Session.create(session_params)
-            # @session.patient_id = Patient.find(params[:id])
+          @session = Session.new(session_params)
+          @session.patient_id = current_user.id
             if @session.save
                 redirect_to @session
                 else
@@ -40,7 +43,7 @@ class SessionsController < ApplicationController
           end
           private 
           def session_params
-              params.require(:session).permit(:title, :description, :Response ,:date,:doctor_id,:patient_id)
+              params.require(:session).permit(:title, :description, :Response ,:date,:user_id,:patient_id)
           end
           def find_session
             @session = Session.find(params[:id])

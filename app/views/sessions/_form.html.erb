@@ -24,9 +24,10 @@
           <!-- Subject -->
           <div class="form-group">
           <label>Doctors</label>
-           <%= form.collection_select :user_id, User.all, :id, :fullname ,class:"browser-default custom-select mb-4"%>
+         <%@list_doc = User.where(:is_role => 'doctor')%> 
+           <%= form.collection_select :user_id, @list_doc, :id, :fullname ,class:"browser-default custom-select mb-4"%>
 </div>
-          
+         <%=          current_user.id.inspect %>
           <%# <div class="form-group">
               <%= form.text_area :description , class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3" %>
           <%# </div> %> 

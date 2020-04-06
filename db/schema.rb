@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_203701) do
+ActiveRecord::Schema.define(version: 2020_04_06_125501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_203701) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "patient_id"
-    t.bigint "doctor_id"
     t.bigint "user_id"
-    t.index ["doctor_id"], name: "index_sessions_on_doctor_id"
-    t.index ["patient_id"], name: "index_sessions_on_patient_id"
+    t.integer "patient_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -61,7 +58,5 @@ ActiveRecord::Schema.define(version: 2020_04_05_203701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "sessions", "doctors"
-  add_foreign_key "sessions", "patients"
   add_foreign_key "sessions", "users"
 end
