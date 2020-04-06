@@ -30,6 +30,9 @@ class SessionsController < ApplicationController
           def edit
             @session = Session.find(params[:id])
           end
+          def edit_doc
+            @session = Session.find(params[:id])
+          end
           def update
             session = Session.find(params[:id])
             session.update(session_params)

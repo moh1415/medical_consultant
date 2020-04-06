@@ -19,7 +19,9 @@
                         <h3 class="panel-title">List Of Sessions</h3>
                     </div>
                     <div class="col col-xs-6 text-right">
+                             <% if current_user.is_role != 'doctor' %>
                          <%= link_to 'Create New Session', new_session_path, class: 'btn btn-sm btn-primary btn-create' %>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -37,9 +39,14 @@
                      <% @session.each do |session| %>
                     <tr>
                         <td align="center">
-                        
+                            <% if current_user.is_role == 'doctor' %>
+                            <%= link_to '', edit_doc_path(session), class: 'btn btn-default fa fa-pencil' %>
+                            <% end %>
+                            <% if current_user.is_role != 'doctor' %>
                            <%= link_to '', edit_session_path(session), class: 'btn btn-default fa fa-pencil' %>
+                           
                             <%= link_to '', session_path(session) , class: 'btn btn-danger fa fa-trash', method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <% end %>
                         </td>
                        
                         <td><%= link_to session.title, session_path(session) %></td>

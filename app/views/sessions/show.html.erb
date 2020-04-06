@@ -1,5 +1,42 @@
-<h2> session </h2>
-title:<%=@session.title%>
-description :<%=@session.description%>
-Response:<%=@session.Response%>
-date:<%=@session.date%>
+<body>
+      <%= render 'home/nav' %>
+      <br><br> <br><br> <br><br>
+   <div class="container">
+  <h2></h2>
+  <p> </p>
+    <div class="row">
+
+  
+
+    <div class="col-md-10 col-md-offset-1">
+
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title"><%=@session.title%></h3>
+                                      <div class="jumbotron">
+            <h4>Description: </h4><h5><%=@session.description%></h5><br>
+            <h4>Response: </h4><h5><%=@session.Response%></h5><br>        
+            <p>Date: <%=@session.date%></p>
+                                 <%= link_to 'Back to your Sessions', sessions_path, class: 'btn btn-secondary' %>
+            </div>  
+                    </div>
+             
+                </div>
+            </div>
+           
+        </div>
+
+    </div></div></div>
+
+
+
+
+
+   </body>
+
+   
+
+ 
+ 

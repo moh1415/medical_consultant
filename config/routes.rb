@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   match '/sessions/user', to: 'devise/sessions#create', via: :post
 end
   resources :patients, :doctors, :sessions
+  get "sessions/:id/edit_doc" => 'sessions#edit_doc', as: 'edit_doc'
+
+  
   get 'home/home'
   get 'home/patient_dash'
   get 'home/index'
