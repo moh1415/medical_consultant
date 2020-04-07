@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
             @session = Session.where(:user_id => current_user)
            end
           # @session = Session.all
+          
         end
         
         def show
@@ -32,11 +33,30 @@ class SessionsController < ApplicationController
           end
           def edit_doc
             @session = Session.find(params[:id])
+            
           end
           def update
+           
             session = Session.find(params[:id])
             session.update(session_params)
-              
+            if current_user.is_role == "doctor"
+            @phone_number = Session.find(params[:id])
+            @user_patient = User.find(@phone_number.id)
+            phone_number1 = @user_patient.phone_number
+            require 'nexmo'
+            phone_number = 549032262
+            msg = "you have new response"
+            client = Nexmo::Client.new(
+              api_key: "6872bf3f",
+              api_secret: API_SECRET
+            )
+  
+            client.sms.send(
+              from: "Vonage SMS API",
+              to: "966#{phone_number1}",
+              text: msg
+            )
+            end
             redirect_to session
           end
           def destroy
