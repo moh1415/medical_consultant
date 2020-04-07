@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-      
+        before_action :authenticate_user!, only: [:new,:index,:show,:edit,:edit_doc]
         def index
           if current_user.is_role == "patient"
             @session = Session.where(:patient_id => current_user)
@@ -39,10 +39,12 @@ class SessionsController < ApplicationController
            
             session = Session.find(params[:id])
             session.update(session_params)
+            # to get the patient phone number to use for send sms 
             if current_user.is_role == "doctor"
             @phone_number = Session.find(params[:id])
             @user_patient = User.find(@phone_number.id)
             phone_number1 = @user_patient.phone_number
+            # api call to nexmo 
             require 'nexmo'
             phone_number = 549032262
             msg = "you have new response"
@@ -52,7 +54,7 @@ class SessionsController < ApplicationController
             )
   
             client.sms.send(
-              from: "Vonage SMS API",
+              from: "Medical Consultant",
               to: "966#{phone_number1}",
               text: msg
             )

@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         #  has_many :sessions
          has_many :session
-        
+         validates :fullname, presence: true
+         validates :phone_number, presence: true
 end
