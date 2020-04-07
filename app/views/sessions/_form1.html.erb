@@ -13,9 +13,9 @@
 
           <!-- Name -->
           <%= form.text_field :title, class: "form-control mb-4" , placeholder: "Title" %>
-          <div class="form-group">
-              <%= form.text_area :description ,:disabled => true, class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3" %>
-          </div>
+          <%# <div class="form-group">
+              <%= form.text_area :description ,:disabled => true, class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3"  %>
+          <%# </div> %>
             <div class="form-group">
          <%= form.date_select :date, :class => 'form-control mb-4' %>
          
@@ -25,7 +25,7 @@
           
 
           <div class="form-group">
-              <%= form.text_area :Response , class:"form-control rounded-0" , placeholder: "Your Response", rows: "3" %>
+              <%= form.text_area :Response , class:"form-control rounded-0" , placeholder: "Your Response", rows: "3" ,:class => "tinymce" %>
             </div>
          
          
@@ -41,7 +41,7 @@
     </div>
     </div>
 
-
+<%= tinymce %>
 
 
 

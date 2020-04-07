@@ -16,8 +16,11 @@
                     <div class="col col-xs-6">
                         <h3 class="panel-title"><%=@session.title%></h3>
                                       <div class="jumbotron">
-            <h4>Description: </h4><h5><%=@session.description%></h5><br>
-            <h4>Response: </h4><h5><%=@session.Response%></h5><br>        
+            <h4>Description: </h4><h5><%=@session.description.html_safe%></h5><br>
+            <h4>Response: </h4>
+            
+            <h5><%=@session.Response.to_s.html_safe%></h5><br> 
+               
             <p>Date: <%=@session.date%></p>
                                  <%= link_to 'Back to your Sessions', sessions_path, class: 'btn btn-secondary' %>
             </div>  

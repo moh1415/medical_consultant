@@ -14,7 +14,7 @@
           <!-- Name -->
           <%= form.text_field :title, class: "form-control mb-4" , placeholder: "Title" %>
           <div class="form-group">
-              <%= form.text_area :description , class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3" %>
+              <%= form.text_area :description , class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3", :class => "tinymce" %>
           </div>
 <div class="form-group">
          <%= form.date_select :date, :class => 'form-control mb-4' %>
@@ -26,7 +26,7 @@
           <label>Doctors</label>
          <%@list_doc = User.where(:is_role => 'doctor')%> 
            <%= form.collection_select :user_id, @list_doc, :id, :fullname ,class:"browser-default custom-select mb-4"%>
-</div>
+          </div>
        
           <%# <div class="form-group">
               <%= form.text_area :description , class:"form-control rounded-0" , placeholder: "Description of the disease", rows: "3" %>
@@ -36,9 +36,11 @@
 
           <!-- Send button -->
           <%= form.submit  class:"btn btn-info btn-block"%>
-       
+          <br>
+          <%= link_to 'Back to your Sessions', sessions_path, class: 'btn btn-secondary col-md-12' %>
+
       <% end %>
-    
+        <br><br><br><br>
 
 
     
@@ -52,6 +54,6 @@
    </body>
 
    
-
+<%= tinymce %>
  
  

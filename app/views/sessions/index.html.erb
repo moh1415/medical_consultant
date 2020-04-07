@@ -50,7 +50,9 @@
                         </td>
                        
                         <td><%= link_to session.title, session_path(session) %></td>
-                        <td><%= session.Response %></td>
+                           
+                        <td><%= session.Response.to_s.html_safe %></td>
+                       
                     
                     </tr>
                     <% end %>

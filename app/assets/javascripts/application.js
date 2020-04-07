@@ -28,4 +28,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require tinymce
 //= require_tree .

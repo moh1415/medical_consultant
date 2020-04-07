@@ -24,6 +24,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.3.1'
 gem 'nexmo', '~> 6.2'
+gem 'tinymce-rails'
 # Use jQuery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Use Redis adapter to run Action Cable in production
