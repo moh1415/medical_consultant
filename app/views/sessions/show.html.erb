@@ -22,7 +22,14 @@
             <h5><%=@session.Response.to_s.html_safe%></h5><br> 
                
             <p>Date: <%=@session.date%></p>
-                                 <%= link_to 'Back to your Sessions', sessions_path, class: 'btn btn-secondary' %>
+            <% if @session.file.attached? %>
+            <div class="form-group">
+        <%= link_to 'Show Medical File Report', @session.file, class: 'btn btn-info' %>
+        <%= link_to 'Download Medical File Report', @session.file, download: '', class: 'btn btn-info' %>
+            </div>
+            <% end %>
+                <br>
+                <%= link_to 'Back to your Sessions', sessions_path, class: 'btn btn-secondary' %>
             </div>  
                     </div>
              
