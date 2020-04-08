@@ -68,7 +68,7 @@ class SessionsController < ApplicationController
           end
           private 
           def session_params
-              params.require(:session).permit(:title, :description, :Response ,:date,:user_id,:patient_id,:file)
+              params.require(:session).permit(:title, :description, :Response ,:date,:user_id,:patient_id)
           end
           def find_session
             @session = Session.find(params[:id])
