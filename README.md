@@ -25,7 +25,7 @@ This project is about a new system which is a Consultation Website to help patie
 ![Medical wirefram](./img/Sign-Up.png)
 ![Medical wirefram](./img/Dashboard.png)
 ## ERD:
-![Medical wirefram](/img/ERD.PNG)
+![Medical wirefram](./img/ERD.png)
 
 
 ## User Stories version 1:
