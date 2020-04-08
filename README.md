@@ -21,9 +21,9 @@ This project is about a new system which is a Consultation Website to help patie
 - WYSIWYG
 
 ## Wireframe:
-![Medical wirefram](/img/Home.PNG)
-![Medical wirefram](/img/Sign-Up.PNG)
-![Medical wirefram](/img/Dashboard.PNG)
+![Medical wirefram](./img/Home.png)
+![Medical wirefram](./img/Sign-Up.png)
+![Medical wirefram](./img/Dashboard.png)
 ## ERD:
 ![Medical wirefram](/img/ERD.PNG)
 
