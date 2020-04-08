@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
             # api call to nexmo 
             require 'nexmo'
             phone_number = 549032262
-            msg = "you have new response"
+            msg = "You Have New Reply from your session #{session.title}"
             client = Nexmo::Client.new(
               api_key: "6872bf3f",
               api_secret: API_SECRET

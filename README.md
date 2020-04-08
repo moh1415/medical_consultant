@@ -4,7 +4,7 @@
 This project is about a new system which is a Consultation Website to help patients and doctors. The patients register with the Website and provide personal information and history of diseases and doctors replies and they get a notification.
 
 ### Deployed link:
-[Link Demo](https://moh1415.github.io/Project-React-Game/)
+[Link Demo](http://51.254.123.198:3000/)
 
 ## Technology used :
  - Ruby and Rails 
