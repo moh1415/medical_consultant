@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
         before_action :authenticate_user!, only: [:new,:index,:show,:edit,:edit_doc]
         def index
+          # to handle the role when it login
           if current_user.is_role == "patient"
             @session = Session.where(:patient_id => current_user)
-            # @session = Session.all
-            # @session = current_user.sessions.all
+        
           elsif current_user.is_role == "doctor"
             @session = Session.where(:user_id => current_user)
            end
-          # @session = Session.all
+          
           
         end
         
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
          @session = Session.new
         end
         def create
+          # to create new session for patient
           @session = Session.new(session_params)
           @session.patient_id = current_user.id
             if @session.save
@@ -46,7 +47,7 @@ class SessionsController < ApplicationController
             phone_number1 = @user_patient.phone_number
             # api call to nexmo 
             require 'nexmo'
-            phone_number = 549032262
+            
             msg = "You Have New Reply from your session #{session.title}"
             client = Nexmo::Client.new(
               api_key: "6872bf3f",

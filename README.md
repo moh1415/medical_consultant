@@ -29,11 +29,12 @@ This project is about a new system which is a Consultation Website to help patie
 
 
 ## User Stories version 1:
-- As a patient, I can create a request
-- As a patient, I can remove a request
-- As a patient, I can edit a request information
-- As a doctor, I can reply to a request
-- As a doctor, I can get all request list 
+- As a patient, I can create a session
+- As a patient, I can remove a session
+- As a patient, I can edit a session information
+- As a patient, I can list all my sessions information
+- As a doctor, I can reply to a session
+- As a doctor, I can get all session list 
 - As a patient, I can sign up into the dashboard
 - As a patient, I can log into the dashboard
 - As a doctor, I can sign up into the dashboard
